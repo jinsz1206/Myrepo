@@ -80,6 +80,7 @@ public class StaticGeneration {
             Files.copy(inputFile.toPath(), destPath, StandardCopyOption.REPLACE_EXISTING);
         }
     }
+    public void  nothing(){}
 
 
 
