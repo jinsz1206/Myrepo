@@ -2,13 +2,13 @@ package com.jsz.generator;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.ArrayUtil;
-import lombok.val;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+
 
 public class StaticGeneration {
     public static void main(String[] args) {
@@ -17,7 +17,7 @@ public class StaticGeneration {
         System.out.println(parentFile.getAbsolutePath());
         String inputPath = new File(parentFile, "jinsz-demo/acm-template").getAbsolutePath();
         String outputPath = projectPath;
-        copyFilesByRecursive(inputPath, outputPath);
+        copyFilesbyhutool(inputPath, outputPath);
 
     }
 
@@ -81,8 +81,6 @@ public class StaticGeneration {
         }
     }
 
-
+//测试git pull
 
 }
-
-
