@@ -24,11 +24,11 @@ public class DynamicGeneration {
 
         String projectPath = System.getProperty("user.dir");
         System.out.printf(projectPath);
-        String inputPath = projectPath + File.separator + "jinsz-gen-basic/src/main/resources/templates/MainTemplate.java.ftl";
+        String inputPath = projectPath + File.separator + "src/main/resources/templates/MainTemplate.java.ftl";
         String outputPath = projectPath + File.separator + "MainTemplate.java";
         MainTemplateConfig mainTemplateConfig = new MainTemplateConfig();
         mainTemplateConfig.setAuthor("lanbi");
-        mainTemplateConfig.setOutputText("最后的结果");
+        mainTemplateConfig.setOutputText("last");
         mainTemplateConfig.setLoop(false);
         DoGenerate(inputPath, outputPath, mainTemplateConfig);
 
