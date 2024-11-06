@@ -21,13 +21,13 @@ import java.util.concurrent.Callable;
 public class GeneratorCommand implements Callable<Integer> {
 
 
-    @CommandLine.Option(names = {"-a", "--author"}, arity = "0..1", description = "author name")
+    @CommandLine.Option(names = {"-a", "--author"}, arity = "0..1", description = "author name",interactive = true)
     public String author = "jsz";
 
-    @CommandLine.Option(names = {"-o", "--outputText"}, arity = "0..1",description = "outputText")
-    public String outputText = "result";
+    @CommandLine.Option(names = {"-o", "--outputText"}, arity = "0..1",description = "outputText",interactive = true)
+    public String outputText = "out";
 
-    @CommandLine.Option(names = {"-l", "--loop"}, arity = "0..1",description = "是否循环")
+    @CommandLine.Option(names = {"-l", "--loop"}, arity = "0..1",description = "是否循环",interactive = true)
     public boolean loop = true;
 
     @Override

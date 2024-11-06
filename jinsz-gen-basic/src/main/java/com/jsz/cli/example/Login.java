@@ -25,6 +25,7 @@ public class Login implements Callable<Integer> {
     }
 
     public static void main(String[] args) {
+
         new CommandLine(new Login()).execute("-u", "懒狗", "-p","-cp","123");
     }
 }

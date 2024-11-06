@@ -2,7 +2,6 @@ package com.jsz.cli;
 import com.jsz.cli.command.ConfigCommand;
 import com.jsz.cli.command.GeneratorCommand;
 import com.jsz.cli.command.ListCommand;
-import jdk.javadoc.internal.doclets.formats.html.DeprecatedListWriter;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
