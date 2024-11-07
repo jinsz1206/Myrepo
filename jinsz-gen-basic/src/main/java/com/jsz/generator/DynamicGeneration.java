@@ -13,7 +13,7 @@ import java.io.Writer;
 /**
  * @Title: DynamicGeneration
  * @Author jsz
- * @Package com.jsz.generator
+ * @Package com.jsz.generate
  * @Date 2024/11/5 16:10
  * @description: 动态代码生成
  */
