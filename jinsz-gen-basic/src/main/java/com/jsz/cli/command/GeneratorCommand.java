@@ -17,17 +17,17 @@ import java.util.concurrent.Callable;
  */
 
 
-@Command(name = "Generator",mixinStandardHelpOptions = true)
+@Command(name = "generator",mixinStandardHelpOptions = true)
 public class GeneratorCommand implements Callable<Integer> {
 
 
-    @CommandLine.Option(names = {"-a", "--author"}, arity = "0..1", description = "author name",interactive = true)
+    @CommandLine.Option(names = {"-a", "--author"}, arity = "0..1", description = "author name",interactive = true ,echo = true)
     public String author = "jsz";
 
-    @CommandLine.Option(names = {"-o", "--outputText"}, arity = "0..1",description = "outputText",interactive = true)
+    @CommandLine.Option(names = {"-o", "--outputText"}, arity = "0..1",description = "outputText",interactive = true ,echo = true)
     public String outputText = "out";
 
-    @CommandLine.Option(names = {"-l", "--loop"}, arity = "0..1",description = "是否循环",interactive = true)
+    @CommandLine.Option(names = {"-l", "--loop"}, arity = "0..1",description = "是否循环",interactive = true ,echo = true)
     public boolean loop = true;
 
     @Override
