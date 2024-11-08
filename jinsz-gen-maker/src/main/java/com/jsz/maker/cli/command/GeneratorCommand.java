@@ -18,7 +18,7 @@ import java.util.concurrent.Callable;
  */
 
 @Data
-@Command(name = "generator",mixinStandardHelpOptions = true)
+@Command(name = "generator",description = "生成代码",mixinStandardHelpOptions = true)
 public class GeneratorCommand implements Callable<Integer> {
 
 
@@ -35,7 +35,6 @@ public class GeneratorCommand implements Callable<Integer> {
     public Integer call() throws Exception {
         DataModel dataModel = new DataModel();
         BeanUtil.copyProperties(this, dataModel);
-        System.out.println("配置的信息： " + dataModel);
         MainFileGeneration.doMainGeneration(dataModel);
         return 0;
     }

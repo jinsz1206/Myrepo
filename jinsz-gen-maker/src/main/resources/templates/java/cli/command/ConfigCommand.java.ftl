@@ -1,18 +1,11 @@
-package com.jsz.maker.cli.command;
+package ${basePackage}.cli.command;
 
 import cn.hutool.core.util.ReflectUtil;
-import com.jsz.maker.model.DataModel;
+import ${basePackage}.model.DataModel;
 import picocli.CommandLine;
 
 import java.lang.reflect.Field;
 
-/**
- * @Title: ConfigCommand
- * @Author jsz
- * @Package com.jsz.cli.command
- * @Date 2024/11/6 17:26
- * @description:
- */
 
 @CommandLine.Command(name = "config", description = "查看参数信息",mixinStandardHelpOptions = true)
 public class ConfigCommand implements Runnable{

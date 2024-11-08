@@ -1,11 +1,11 @@
-package com.jsz.maker.generator;
+package ${basePackage}.generator;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.resource.ClassPathResource;
 import cn.hutool.core.util.StrUtil;
-import com.jsz.maker.generator.file.DynamicFileGeneration;
-import com.jsz.maker.meta.Meta;
-import com.jsz.maker.meta.MetaManager;
+import ${basePackage}.generator.file.DynamicFileGeneration;
+import ${basePackage}.meta.Meta;
+import ${basePackage}.meta.MetaManager;
 import freemarker.template.TemplateException;
 
 import java.io.File;
