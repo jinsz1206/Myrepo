@@ -25,32 +25,42 @@ public class MainFileGeneration {
     public static void doMainGeneration(Object model) throws TemplateException, IOException {
 
 
-        //静态生成
-        String projectPath = System.getProperty("user.dir");
-        System.out.println(projectPath);
-        File parentFile = new File(projectPath).getParentFile();
-        System.out.println(parentFile.getAbsolutePath());
-        String inputPath = new File(parentFile, "jinsz-demo/acm-template").getAbsolutePath();
-        String outputPath = projectPath;
+
+        String inputRootPath = "E:/JetBrains/jinszOne/jinsz-demo/acm-template-pro";
+        String outputRootPath = "E:\\JetBrains\\jinszOne";
+
+        String inputPath;
+        String outputPath;
+
+        //生成MainTemplate.java
+        inputPath = new File(inputRootPath,"src/com/jsz/acm/MainTemplate.java.ftl").getAbsolutePath();
+        outputPath = new File(outputRootPath,"src/com/jsz/acm/MainTemplate.java").getAbsolutePath();
+        DynamicFileGeneration.DoGenerate(inputPath, outputPath, model);
+
+        //生成.gitignore
+        inputPath = new File(inputRootPath,".gitignore").getAbsolutePath();
+        outputPath = new File(outputRootPath,".gitignore").getAbsolutePath();
         StaticFileGeneration.copyFilesbyhutool(inputPath, outputPath);
 
-        //动态生成;
-        String inputPathDynamic = projectPath + File.separator + "src/main/resources/templates/MainTemplate.java.ftl";
-        String outputPathDynamic = projectPath + File.separator + "MainTemplate.java";
-        DynamicFileGeneration.DoGenerate(inputPathDynamic, outputPathDynamic, model);
+        //生成README.md
+        inputPath = new File(inputRootPath,"README.md").getAbsolutePath();
+        outputPath = new File(outputRootPath,"README.md").getAbsolutePath();
+        StaticFileGeneration.copyFilesbyhutool(inputPath, outputPath);
 
 
 
 
     }
 
-    public static void main(String[] args) throws TemplateException, IOException {
-
-        DataModel dataModel = new DataModel();
-        dataModel.setAuthor("懒狗");
-        dataModel.setOutputText("结果为");
-        dataModel.setLoop(false);
-        doMainGeneration(dataModel);
-
-    }
 }
+
+
+//    public static void main(String[] args) throws TemplateException, IOException {
+//
+//        DataModel dataModel = new DataModel();
+//        dataModel.setAuthor("懒狗");
+//        dataModel.setOutputText("结果为");
+//        dataModel.setLoop(false);
+//        doMainGeneration(dataModel);
+//
+//    }
