@@ -6,6 +6,7 @@
 .idea/
 target/
 jinszOne.iml
+generated/
 
 # User-specific stuff
 .idea/**/workspace.xml

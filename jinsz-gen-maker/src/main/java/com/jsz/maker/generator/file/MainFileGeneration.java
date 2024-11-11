@@ -27,7 +27,7 @@ public class MainFileGeneration {
 
 
         String inputRootPath = "E:/JetBrains/jinszOne/jinsz-demo/acm-template-pro";
-        String outputRootPath = "E:\\JetBrains\\jinszOne";
+        String outputRootPath = "E:/JetBrains/jinszOne";
 
         String inputPath;
         String outputPath;

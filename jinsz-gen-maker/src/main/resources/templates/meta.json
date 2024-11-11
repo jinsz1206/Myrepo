@@ -4,11 +4,11 @@
   "basePackage": "com.jsz",
   "version": "1.0",
   "author": "jsz",
-  "createTime": "2024-11-22",
+  "createTime": "",
   "fileConfig": {
     "inputRootPath": ".source/acm-template-pro",
     "outputRootPath": "generated",
-    "sourceRootPath": "E:/JetBrains/jinszOne/jinsz-demo/acm-template-pro",
+    "sourceRootPath": "D:/jsz-project/jinszOne/jinsz-demo/acm-template-pro",
     "type": "dir",
     "files": [
       {
