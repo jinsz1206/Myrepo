@@ -1,8 +1,10 @@
-package com.jsz.maker.generator;
+package com.jsz.maker.generator.main;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.resource.ClassPathResource;
 import cn.hutool.core.util.StrUtil;
+import com.jsz.maker.generator.JarGenerator;
+import com.jsz.maker.generator.ScriptGenerator;
 import com.jsz.maker.generator.file.DynamicFileGeneration;
 import com.jsz.maker.meta.Meta;
 import com.jsz.maker.meta.MetaManager;
@@ -25,6 +27,12 @@ public class MainGenerator {
         if (!FileUtil.exist(outputPath)) {
             FileUtil.mkdir(outputPath);
         }
+
+        //复制原始文件
+        String sourceRootPath = meta.getFileConfig().getSourceRootPath();
+        String sourceCopyPath = outputPath + separator + ".source";
+        FileUtil.copy(sourceRootPath,sourceCopyPath,false);
+
 
 
         //输入路径 resources
@@ -95,6 +103,12 @@ public class MainGenerator {
         outputFilePath = outputPath + separator + "pom.xml";
         DynamicFileGeneration.DoGenerate(inputFilePath , outputFilePath, meta);
 
+        //README.md
+        inputFilePath = inputResources + File.separator + "templates/README.md.ftl";
+        outputFilePath = outputPath + separator + "README.md";
+        DynamicFileGeneration.DoGenerate(inputFilePath , outputFilePath, meta);
+
+
         //构建jar包
         JarGenerator.doGenerate(outputPath);
 
@@ -104,6 +118,19 @@ public class MainGenerator {
         String jarName = String.format("%s-%s-jar-with-dependencies.jar", meta.getName(), meta.getVersion());
         String jarPath = "target/" + jarName;
         ScriptGenerator.doGenerate(shellOutputFilePath, jarPath);
+
+        //生成精简版程序
+        String distOutputPath = outputPath + "-dist";
+        //拷贝jar包
+        String targetAbsolutePath = distOutputPath + File.separator + "target";
+        FileUtil.mkdir(targetAbsolutePath);
+        String jarAbsolutePath = outputPath + File.separator + jarPath;
+        FileUtil.copy(jarAbsolutePath, targetAbsolutePath,true);
+        //拷贝脚本文件
+        FileUtil.copy(shellOutputFilePath, distOutputPath,true);
+        FileUtil.copy(shellOutputFilePath + ".bat", distOutputPath,true);
+        //原模版文件
+        FileUtil.copy(sourceCopyPath,distOutputPath,true);
 
 
 

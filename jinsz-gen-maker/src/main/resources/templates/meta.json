@@ -4,16 +4,16 @@
   "basePackage": "com.jsz",
   "version": "1.0",
   "author": "jsz",
-  "createTime": "2024-11-22",
-    "fileConfig": {
-    "inputRootPath": "E:/JetBrains/jinszOne/jinsz-demo/acm-template-pro",
+  "createTime": "",
+  "fileConfig": {
+    "inputRootPath": ".source/acm-template-pro",
     "outputRootPath": "generated",
+    "sourceRootPath": "D:/jsz-project/jinszOne/jinsz-demo/acm-template-pro",
     "type": "dir",
     "files": [
       {
         "inputPath": "src/com/jsz/acm/MainTemplate.java.ftl",
         "outputPath": "src/com/jsz/acm/MainTemplate.java",
-        "sourceRootPath":
         "type": "file",
         "generateType": "dynamic"
       },
