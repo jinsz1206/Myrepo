@@ -21,7 +21,7 @@ public class MainGenerator {
 
         //输出根路径
         String projectPath = System.getProperty("user.dir");
-        String outputPath = projectPath + separator + "generated";
+        String outputPath = projectPath + separator + "generated" + separator + meta.getName();
         if (!FileUtil.exist(outputPath)) {
             FileUtil.mkdir(outputPath);
         }
@@ -97,5 +97,15 @@ public class MainGenerator {
 
         //构建jar包
         JarGenerator.doGenerate(outputPath);
+
+
+        // 封装脚本
+        String shellOutputFilePath = outputPath + File.separator + "generator";
+        String jarName = String.format("%s-%s-jar-with-dependencies.jar", meta.getName(), meta.getVersion());
+        String jarPath = "target/" + jarName;
+        ScriptGenerator.doGenerate(shellOutputFilePath, jarPath);
+
+
+
     }
 }

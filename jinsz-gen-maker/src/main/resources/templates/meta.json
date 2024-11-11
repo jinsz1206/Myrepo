@@ -13,6 +13,7 @@
       {
         "inputPath": "src/com/jsz/acm/MainTemplate.java.ftl",
         "outputPath": "src/com/jsz/acm/MainTemplate.java",
+        "sourceRootPath":
         "type": "file",
         "generateType": "dynamic"
       },
