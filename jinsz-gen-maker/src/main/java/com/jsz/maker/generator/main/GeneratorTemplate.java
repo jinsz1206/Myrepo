@@ -21,7 +21,7 @@ import static java.io.File.separator;
  * @Package com.jsz.maker.generator.main
  */
 public abstract class GeneratorTemplate {
-    public void doGenerate() throws TemplateException, IOException, InterruptedException{
+    protected void doGenerate() throws TemplateException, IOException, InterruptedException{
 
         Meta meta = MetaManager.getMetaObject();
         System.out.println(meta);
@@ -41,18 +41,21 @@ public abstract class GeneratorTemplate {
         generateCode(meta, outputPath);
 
         //构建jar包
-        jarBuild(outputPath);
+        String jarPath = jarBuild(outputPath,meta);
 
-
+        
 
         // 封装脚本
-        String shellOutputFilePath = outputPath + File.separator + "generator";
-        String jarName = String.format("%s-%s-jar-with-dependencies.jar", meta.getName(), meta.getVersion());
-        String jarPath = "target/" + jarName;
-        ScriptGenerator.doGenerate(shellOutputFilePath, jarPath);
+        String shellOutputFilePath = BuildScript(outputPath, jarPath);
 
 
         //生成精简版程序
+        buildDist(outputPath, shellOutputFilePath, sourceCopyPath, jarPath);
+
+
+    }
+
+    protected void buildDist(String outputPath, String shellOutputFilePath, String sourceCopyPath,String jarPath) {
         String distOutputPath = outputPath + "-dist";
         //拷贝jar包
         String targetAbsolutePath = distOutputPath + File.separator + "target";
@@ -64,18 +67,24 @@ public abstract class GeneratorTemplate {
         FileUtil.copy(shellOutputFilePath + ".bat", distOutputPath,true);
         //原模版文件
         FileUtil.copy(sourceCopyPath,distOutputPath,true);
-
-
-
-
     }
 
-    private static void jarBuild(String outputPath) throws InterruptedException, IOException {
+    protected  String BuildScript(String outputPath, String jarPath) throws IOException {
+        String shellOutputFilePath = outputPath + File.separator + "generator";;
+        ScriptGenerator.doGenerate(shellOutputFilePath, jarPath);
+        return shellOutputFilePath;
+    }
+
+
+    protected  String jarBuild(String outputPath, Meta meta) throws InterruptedException, IOException {
         //构建jar包
         JarGenerator.doGenerate(outputPath);
+        String jarName = String.format("%s-%s-jar-with-dependencies.jar", meta.getName(), meta.getVersion());
+        String jarPath = "target/" + jarName;
+        return jarPath;
     }
 
-    private static void generateCode(Meta meta, String outputPath) throws IOException, TemplateException {
+    protected  void generateCode(Meta meta, String outputPath) throws IOException, TemplateException {
         //输入路径 resources
         ClassPathResource classPathResource = new ClassPathResource("");
         String inputResources = classPathResource.getAbsolutePath();
@@ -148,7 +157,7 @@ public abstract class GeneratorTemplate {
         DynamicFileGeneration.DoGenerate(inputFilePath , outputFilePath, meta);
     }
 
-    private static String copySource(Meta meta, String outputPath) {
+    protected static String copySource(Meta meta, String outputPath) {
         //复制原始文件
         String sourceRootPath = meta.getFileConfig().getSourceRootPath();
         String sourceCopyPath = outputPath + separator + ".source";
