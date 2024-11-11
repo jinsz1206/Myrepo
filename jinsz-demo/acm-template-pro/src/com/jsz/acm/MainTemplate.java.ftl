@@ -1,4 +1,4 @@
-package com.jinsz.acm;
+package com.jsz.acm;
 
 import java.util.Scanner;
 
