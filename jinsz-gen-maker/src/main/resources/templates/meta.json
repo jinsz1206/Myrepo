@@ -5,9 +5,10 @@
   "version": "1.0",
   "author": "jsz",
   "createTime": "2024-11-22",
-    "fileConfig": {
-    "inputRootPath": "E:/JetBrains/jinszOne/jinsz-demo/acm-template-pro",
+  "fileConfig": {
+    "inputRootPath": ".source/acm-template-pro",
     "outputRootPath": "generated",
+    "sourceRootPath": "E:/JetBrains/jinszOne/jinsz-demo/acm-template-pro",
     "type": "dir",
     "files": [
       {

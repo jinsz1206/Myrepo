@@ -36,12 +36,9 @@ public class CommandExcutor implements Runnable {
 
     }
 
-
     public Integer doExcute(String[] args) {
         return commandLine.execute(args);
 
     }
-
-
 
 }
