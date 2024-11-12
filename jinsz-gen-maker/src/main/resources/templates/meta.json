@@ -8,31 +8,48 @@
   "fileConfig": {
     "inputRootPath": ".source/acm-template-pro",
     "outputRootPath": "generated",
-    "sourceRootPath": "",
+    "sourceRootPath": "D:\\jsz-project\\jinszOne\\jinsz-demo\\acm-template-pro",
     "type": "dir",
     "files": [
+      {
+        "groupKey": "git",
+        "groupName": "开源",
+        "type": "group",
+        "condition": "needGit",
+        "files": [
+          {
+            "inputPath": ".gitignore",
+            "outputPath": ".gitignore",
+            "type": "file",
+            "generateType": "static"
+          },
+          {
+            "inputPath": "README.md",
+            "outputPath": "README.md",
+            "type": "file",
+            "generateType": "static"
+          }
+        ]
+      },
       {
         "inputPath": "src/com/jsz/acm/MainTemplate.java.ftl",
         "outputPath": "src/com/jsz/acm/MainTemplate.java",
         "type": "file",
         "generateType": "dynamic"
-      },
-      {
-        "inputPath": ".gitignore",
-        "outputPath": ".gitignore",
-        "type": "file",
-        "generateType": "static"
-      },
-      {
-        "inputPath": "README.md",
-        "outputPath": "README.md",
-        "type": "file",
-        "generateType": "static"
       }
     ]
+
   },
   "modelConfig": {
     "models": [
+      {
+        "fieldName": "needGit",
+        "type": "boolean",
+        "description": "是否生成.gitignore",
+        "defaultValue": true,
+        "abbr": "n"
+      },
+
       {
         "fieldName": "loop",
         "type": "boolean",

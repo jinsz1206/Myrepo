@@ -102,6 +102,10 @@ public class MetaValidator {
             return;
         }
         for (Meta.FileConfigDTO.FilesDTO file : files) {
+            String Type = file.getType();
+            if(FileTypeEnum.GROUP.getValue().equals(Type)){
+                continue;
+            }
             //inputPath 必须填
             String inputPath = file.getInputPath();
             if (StrUtil.isBlank(inputPath)) {

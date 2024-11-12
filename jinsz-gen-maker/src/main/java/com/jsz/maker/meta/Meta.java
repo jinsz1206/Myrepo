@@ -34,6 +34,11 @@ public class Meta {
             private String outputPath;
             private String type;
             private String generateType;
+            private String condition;
+            private String groupKey;
+            private String groupName;
+            private List<FilesDTO> files;
+
         }
     }
 

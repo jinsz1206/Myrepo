@@ -12,7 +12,8 @@ package com.jsz.maker.meta.enums;
 public enum FileTypeEnum {
 
     DIR("目录", "dir"),
-    FILE("文件", "file");
+    FILE("文件", "file"),
+    GROUP("文件组", "group");
 
     private final String text;
 

@@ -1,5 +1,6 @@
 package ${basePackage}.generator;
 import freemarker.template.TemplateException;
+import com.jsz.model.DataModel;
 import java.io.File;
 import java.io.IOException;
 
@@ -19,7 +20,7 @@ public class MainFileGeneration {
      * @throws TemplateException
      * @throws IOException
      */
-    public static void doMainGeneration(Object model) throws TemplateException, IOException {
+    public static void doMainGeneration(DataModel model) throws TemplateException, IOException {
 
 
 
@@ -29,7 +30,24 @@ public class MainFileGeneration {
         String inputPath;
         String outputPath;
 
+<#list modelConfig.models as modelInfo>
+      ${modelInfo.type} ${modelInfo.fieldName} = model.${modelInfo.fieldName};
+</#list>
+
 <#list fileConfig.files as fileInfo>
+    <#if fileInfo.condition??>
+        if(${fileInfo.condition}){
+            inputPath = new File(inputRootPath,"${fileInfo.inputPath}").getAbsolutePath();
+            outputPath = new File(outputRootPath,"${fileInfo.outputPath}").getAbsolutePath();
+            <#if fileInfo.generateType == "dynamic">
+            DynamicFileGeneration.DoGenerate(inputPath, outputPath, model);
+            <#else>
+            StaticFileGeneration.copyFilesbyhutool(inputPath, outputPath);
+            </#if>
+        }
+
+
+    <#else>
         inputPath = new File(inputRootPath,"${fileInfo.inputPath}").getAbsolutePath();
         outputPath = new File(outputRootPath,"${fileInfo.outputPath}").getAbsolutePath();
         <#if fileInfo.generateType == "dynamic">
@@ -38,6 +56,7 @@ public class MainFileGeneration {
         StaticFileGeneration.copyFilesbyhutool(inputPath, outputPath);
         </#if>
 
+    </#if>
 </#list>
 
 
