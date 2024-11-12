@@ -8,7 +8,7 @@
   "fileConfig": {
     "inputRootPath": ".source/acm-template-pro",
     "outputRootPath": "generated",
-    "sourceRootPath": "D:\\jsz-project\\jinszOne\\jinsz-demo\\acm-template-pro",
+    "sourceRootPath": "E:\\JetBrains\\jinszOne\\jinsz-demo\\acm-template-pro",
     "type": "dir",
     "files": [
       {
