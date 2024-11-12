@@ -45,6 +45,7 @@ public class Meta {
     @NoArgsConstructor
     @Data
     public static class ModelConfigDTO {
+
         private List<ModelsDTO> models;
 
         @NoArgsConstructor
@@ -55,6 +56,9 @@ public class Meta {
             private String description;
             private Object defaultValue;
             private String abbr;
+            private String groupKey;
+            private String groupName;
+            private List<ModelsDTO> models;
         }
     }
 }

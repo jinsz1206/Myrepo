@@ -48,6 +48,11 @@ public class MetaValidator {
             return;
         }
         for (Meta.ModelConfigDTO.ModelsDTO modelInfo : modelInfoList) {
+            String groupKey = modelInfo.getGroupKey();
+            // 是分组的文件跳过校验
+            if (StrUtil.isNotEmpty(groupKey)) {
+                continue;
+            }
             //输出路径默认值
             String fieldName = modelInfo.getFieldName();
             if (StrUtil.isBlank(fieldName)){
