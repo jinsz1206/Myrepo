@@ -8,7 +8,7 @@
   "fileConfig": {
     "inputRootPath": ".source/acm-template-pro",
     "outputRootPath": "generated",
-    "sourceRootPath": "E:\\JetBrains\\jinszOne\\jinsz-demo\\acm-template-pro",
+    "sourceRootPath": "D:\\jsz-project\\jinszOne\\jinsz-demo\\acm-template-pro",
     "type": "dir",
     "files": [
       {
@@ -46,7 +46,8 @@
         "fieldName": "needGit",
         "type": "boolean",
         "description": "是否生成 .gitignore 文件",
-        "defaultValue": true
+        "defaultValue": true,
+        "abbr": "n"
       },
       {
         "fieldName": "loop",
@@ -60,6 +61,7 @@
         "groupName": "核心模板",
         "type": "MainTemplate",
         "description": "用于生成核心模板文件",
+        "condition" : "loop",
         "models": [
           {
             "fieldName": "author",

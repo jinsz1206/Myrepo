@@ -1,6 +1,4 @@
 package com.jsz.maker.generator.file;
-
-import com.jsz.maker.model.DataModel;
 import freemarker.template.TemplateException;
 
 import java.io.File;

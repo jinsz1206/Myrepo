@@ -70,7 +70,7 @@ public abstract class GeneratorTemplate {
     }
 
     protected  String BuildScript(String outputPath, String jarPath) throws IOException {
-        String shellOutputFilePath = outputPath + File.separator + "generator";;
+        String shellOutputFilePath = outputPath + File.separator + "generate";;
         ScriptGenerator.doGenerate(shellOutputFilePath, jarPath);
         return shellOutputFilePath;
     }

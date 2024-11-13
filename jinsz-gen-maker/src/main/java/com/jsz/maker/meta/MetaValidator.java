@@ -13,6 +13,7 @@ import com.jsz.maker.meta.enums.ModelTypeEnum;
 import java.io.File;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @Title: MetaValidator
@@ -51,6 +52,11 @@ public class MetaValidator {
             String groupKey = modelInfo.getGroupKey();
             // 是分组的文件跳过校验
             if (StrUtil.isNotEmpty(groupKey)) {
+                //生成中间参数
+                String allArgsStr = modelInfo.getModels().stream()
+                        .map(subModelInfo -> String.format("\"--%s\"", subModelInfo.getFieldName()))
+                        .collect(Collectors.joining(", "));
+                modelInfo.setAllArgsStr(allArgsStr);
                 continue;
             }
             //输出路径默认值

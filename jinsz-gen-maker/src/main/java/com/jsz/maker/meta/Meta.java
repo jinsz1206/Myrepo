@@ -59,6 +59,11 @@ public class Meta {
             private String groupKey;
             private String groupName;
             private List<ModelsDTO> models;
+            private String condition;
+
+            //中间参数
+            private String allArgsStr;
+
         }
     }
 }
