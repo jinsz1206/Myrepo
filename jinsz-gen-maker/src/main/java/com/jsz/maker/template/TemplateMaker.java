@@ -34,14 +34,26 @@ public class TemplateMaker {
         Meta meta = new Meta();
         meta.setName("acm-template-generator");
         meta.setDescription("ACM 示例模板生成器");
-
+//        第一次挖坑
         String str = "Sum: ";
+
+        //第二次测试
+
 
         makeTemplate(meta,1856620056754012160L, originProjectPath, fileInputPath, modelInfo,str);
 
     }
 
-    //todo 确定参数配置
+    /**
+     *
+     * @param newMeta
+     * @param id
+     * @param originProjectPath
+     * @param fileInputPath
+     * @param modelInfo
+     * @param searchStr
+     * @return
+     */
     private static long makeTemplate(Meta newMeta ,Long id, String originProjectPath, String fileInputPath,Meta.ModelConfigDTO.ModelsDTO modelInfo,String searchStr){
 
         // 没有 id 则生成
